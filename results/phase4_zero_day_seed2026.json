@@ -1,0 +1,144 @@
+{
+  "N-BaIoT": {
+    "meta": {
+      "n_clients": 9,
+      "n_features": 115,
+      "n_classes": 6,
+      "class_names": [
+        "benign",
+        "gafgyt.combo",
+        "gafgyt.junk",
+        "gafgyt.scan",
+        "gafgyt.tcp",
+        "gafgyt.udp"
+      ],
+      "held_out_family": "mirai",
+      "n_holdout_rows": 700000,
+      "benign_index": 0,
+      "scaler_fit_rows": 832615
+    },
+    "runs": {
+      "Centralized": {
+        "strategy": "Centralized",
+        "in_distribution_macro_f1": 0.7777275349722195,
+        "zero_day_catch_rate": 0.4276885714285714,
+        "predicted_class_distribution": [
+          400618,
+          91770,
+          30088,
+          171936,
+          11,
+          5577
+        ],
+        "train_seconds": 46.69828248023987
+      },
+      "FedAvg": {
+        "strategy": "FedAvg",
+        "in_distribution_macro_f1": 0.7573577775681035,
+        "zero_day_catch_rate": 0.6063757142857142,
+        "predicted_class_distribution": [
+          275537,
+          113612,
+          60875,
+          210165,
+          30188,
+          9623
+        ],
+        "train_seconds": 168.06389999389648,
+        "checkpoint_path": "results/phase4_nbaiot_FedAvg_seed2026.pt"
+      },
+      "FedProx": {
+        "strategy": "FedProx",
+        "in_distribution_macro_f1": 0.7573933433454282,
+        "zero_day_catch_rate": 0.7917171428571429,
+        "predicted_class_distribution": [
+          145798,
+          93593,
+          152711,
+          199049,
+          108798,
+          51
+        ],
+        "train_seconds": 195.63651061058044,
+        "checkpoint_path": "results/phase4_nbaiot_FedProx_seed2026.pt"
+      }
+    }
+  },
+  "TON_IoT": {
+    "meta": {
+      "n_features": 60,
+      "n_classes": 9,
+      "class_names": [
+        "normal",
+        "backdoor",
+        "ddos",
+        "dos",
+        "injection",
+        "mitm",
+        "password",
+        "scanning",
+        "xss"
+      ],
+      "held_out_class": "ransomware",
+      "n_holdout_rows": 20000,
+      "benign_index": 0,
+      "scaler_fit_rows": 84788,
+      "n_clients": 9
+    },
+    "runs": {
+      "Centralized": {
+        "strategy": "Centralized",
+        "in_distribution_macro_f1": 0.5612134452258766,
+        "zero_day_catch_rate": 0.99365,
+        "predicted_class_distribution": [
+          127,
+          130,
+          184,
+          0,
+          0,
+          141,
+          0,
+          0,
+          19418
+        ],
+        "train_seconds": 4.291719436645508
+      },
+      "FedAvg": {
+        "strategy": "FedAvg",
+        "in_distribution_macro_f1": 0.5045493973906603,
+        "zero_day_catch_rate": 0.98235,
+        "predicted_class_distribution": [
+          353,
+          130,
+          0,
+          0,
+          0,
+          99,
+          0,
+          0,
+          19418
+        ],
+        "train_seconds": 29.76149034500122,
+        "checkpoint_path": "results/phase4_tonIoT_FedAvg_seed2026.pt"
+      },
+      "FedProx": {
+        "strategy": "FedProx",
+        "in_distribution_macro_f1": 0.4668884717393362,
+        "zero_day_catch_rate": 0.98235,
+        "predicted_class_distribution": [
+          353,
+          130,
+          2498,
+          0,
+          0,
+          99,
+          0,
+          0,
+          16920
+        ],
+        "train_seconds": 31.84104824066162,
+        "checkpoint_path": "results/phase4_tonIoT_FedProx_seed2026.pt"
+      }
+    }
+  }
+}

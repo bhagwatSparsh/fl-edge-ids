@@ -1,0 +1,144 @@
+{
+  "N-BaIoT": {
+    "meta": {
+      "n_clients": 9,
+      "n_features": 115,
+      "n_classes": 6,
+      "class_names": [
+        "benign",
+        "gafgyt.combo",
+        "gafgyt.junk",
+        "gafgyt.scan",
+        "gafgyt.tcp",
+        "gafgyt.udp"
+      ],
+      "held_out_family": "mirai",
+      "n_holdout_rows": 700000,
+      "benign_index": 0,
+      "scaler_fit_rows": 832615
+    },
+    "runs": {
+      "Centralized": {
+        "strategy": "Centralized",
+        "in_distribution_macro_f1": 0.7768276367809865,
+        "zero_day_catch_rate": 0.5175714285714286,
+        "predicted_class_distribution": [
+          337700,
+          158994,
+          13902,
+          181481,
+          12,
+          7911
+        ],
+        "train_seconds": 47.6313955783844
+      },
+      "FedAvg": {
+        "strategy": "FedAvg",
+        "in_distribution_macro_f1": 0.7606342462643484,
+        "zero_day_catch_rate": 0.71299,
+        "predicted_class_distribution": [
+          200907,
+          114184,
+          8138,
+          196785,
+          177208,
+          2778
+        ],
+        "train_seconds": 176.26514601707458,
+        "checkpoint_path": "results/phase4_nbaiot_FedAvg.pt"
+      },
+      "FedProx": {
+        "strategy": "FedProx",
+        "in_distribution_macro_f1": 0.7603257742911786,
+        "zero_day_catch_rate": 0.8367914285714285,
+        "predicted_class_distribution": [
+          114246,
+          131994,
+          135946,
+          235213,
+          79600,
+          3001
+        ],
+        "train_seconds": 208.95481634140015,
+        "checkpoint_path": "results/phase4_nbaiot_FedProx.pt"
+      }
+    }
+  },
+  "TON_IoT": {
+    "meta": {
+      "n_features": 60,
+      "n_classes": 9,
+      "class_names": [
+        "normal",
+        "backdoor",
+        "ddos",
+        "dos",
+        "injection",
+        "mitm",
+        "password",
+        "scanning",
+        "xss"
+      ],
+      "held_out_class": "ransomware",
+      "n_holdout_rows": 20000,
+      "benign_index": 0,
+      "scaler_fit_rows": 84788,
+      "n_clients": 9
+    },
+    "runs": {
+      "Centralized": {
+        "strategy": "Centralized",
+        "in_distribution_macro_f1": 0.5658706637676791,
+        "zero_day_catch_rate": 0.99365,
+        "predicted_class_distribution": [
+          127,
+          130,
+          0,
+          0,
+          0,
+          141,
+          184,
+          0,
+          19418
+        ],
+        "train_seconds": 7.058750152587891
+      },
+      "FedAvg": {
+        "strategy": "FedAvg",
+        "in_distribution_macro_f1": 0.5010762440970459,
+        "zero_day_catch_rate": 0.2338,
+        "predicted_class_distribution": [
+          15324,
+          0,
+          0,
+          130,
+          0,
+          283,
+          0,
+          0,
+          4263
+        ],
+        "train_seconds": 34.029868841171265,
+        "checkpoint_path": "results/phase4_tonIoT_FedAvg.pt"
+      },
+      "FedProx": {
+        "strategy": "FedProx",
+        "in_distribution_macro_f1": 0.47005531988720417,
+        "zero_day_catch_rate": 0.2338,
+        "predicted_class_distribution": [
+          15324,
+          130,
+          0,
+          0,
+          0,
+          99,
+          0,
+          184,
+          4263
+        ],
+        "train_seconds": 34.8357937335968,
+        "checkpoint_path": "results/phase4_tonIoT_FedProx.pt"
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "dataset": "N-BaIoT",
+    "rank": 1,
+    "feature": "H_L0.1_weight"
+  },
+  {
+    "dataset": "N-BaIoT",
+    "rank": 2,
+    "feature": "MI_dir_L0.1_weight"
+  },
+  {
+    "dataset": "N-BaIoT",
+    "rank": 3,
+    "feature": "MI_dir_L0.01_weight"
+  },
+  {
+    "dataset": "N-BaIoT",
+    "rank": 4,
+    "feature": "H_L0.01_weight"
+  },
+  {
+    "dataset": "N-BaIoT",
+    "rank": 5,
+    "feature": "HH_jit_L0.1_weight"
+  },
+  {
+    "dataset": "TON_IoT",
+    "rank": 1,
+    "feature": "conn_state_S0"
+  },
+  {
+    "dataset": "TON_IoT",
+    "rank": 2,
+    "feature": "conn_state_REJ"
+  },
+  {
+    "dataset": "TON_IoT",
+    "rank": 3,
+    "feature": "service_http"
+  },
+  {
+    "dataset": "TON_IoT",
+    "rank": 4,
+    "feature": "conn_state_S3"
+  },
+  {
+    "dataset": "TON_IoT",
+    "rank": 5,
+    "feature": "service_-"
+  }
+]

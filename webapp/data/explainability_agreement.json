@@ -1,0 +1,12 @@
+[
+  {
+    "dataset": "N-BaIoT",
+    "spearman_rho": 0.701238854257082,
+    "p_value": 2.6230387932201854e-18
+  },
+  {
+    "dataset": "TON_IoT",
+    "spearman_rho": 0.9041436601954481,
+    "p_value": 4.3532224892717443e-23
+  }
+]

@@ -1,0 +1,40 @@
+
+============================================================
+N-BaIoT local-only baseline (9 natural clients)
+============================================================
+  client 1 Danmini_Doorbell: n_train=171440 | local-test macro-F1=0.8690 | global-test macro-F1=0.6767 | 7.0s
+  client 2 Ecobee_Thermostat: n_train=168438 | local-test macro-F1=0.8786 | global-test macro-F1=0.7238 | 16.3s
+  client 3 Ennio_Doorbell: n_train=93308 | local-test macro-F1=0.7744 | global-test macro-F1=0.2499 | 9.3s
+  client 4 Philips_B120N10_Baby_Monitor: n_train=173896 | local-test macro-F1=0.8780 | global-test macro-F1=0.7227 | 14.5s
+  client 5 Provision_PT_737E_Security_Camera: n_train=172615 | local-test macro-F1=0.8721 | global-test macro-F1=0.7030 | 7.9s
+  client 6 Provision_PT_838_Security_Camera: n_train=173879 | local-test macro-F1=0.8775 | global-test macro-F1=0.7132 | 10.7s
+  client 7 Samsung_SNH_1011_N_Webcam: n_train=93894 | local-test macro-F1=0.7691 | global-test macro-F1=0.2246 | 4.5s
+  client 8 SimpleHome_XCS7_1002_WHT_Security_Camera: n_train=172920 | local-test macro-F1=0.8784 | global-test macro-F1=0.7268 | 17.2s
+  client 9 SimpleHome_XCS7_1003_WHT_Security_Camera: n_train=172225 | local-test macro-F1=0.8775 | global-test macro-F1=0.7362 | 17.1s
+
+============================================================
+TON_IoT local-only baseline (9 Dirichlet clients, alpha=0.5)
+============================================================
+  client 0 dirichlet_client_0: n_train=14832 | local-test macro-F1=0.3523 | global-test macro-F1=0.4612 | 0.6s
+  client 1 dirichlet_client_1: n_train=4792 | local-test macro-F1=0.5255 | global-test macro-F1=0.4492 | 0.6s
+  client 2 dirichlet_client_2: n_train=5277 | local-test macro-F1=0.4054 | global-test macro-F1=0.4358 | 0.4s
+  client 3 dirichlet_client_3: n_train=6486 | local-test macro-F1=0.4172 | global-test macro-F1=0.4656 | 0.4s
+  client 4 dirichlet_client_4: n_train=5732 | local-test macro-F1=0.4501 | global-test macro-F1=0.3676 | 0.2s
+  client 5 dirichlet_client_5: n_train=3636 | local-test macro-F1=0.5628 | global-test macro-F1=0.3465 | 0.2s
+  client 6 dirichlet_client_6: n_train=5992 | local-test macro-F1=0.5010 | global-test macro-F1=0.5284 | 0.5s
+  client 7 dirichlet_client_7: n_train=8964 | local-test macro-F1=0.4355 | global-test macro-F1=0.5463 | 0.6s
+  client 8 dirichlet_client_8: n_train=4234 | local-test macro-F1=0.5811 | global-test macro-F1=0.3316 | 0.3s
+
+
+=== N-BaIoT: zero-Mirai devices' recall on Mirai (global test) ===
+  Danmini_Doorbell                         mirai_recall_mean=0.7205
+  Ecobee_Thermostat                        mirai_recall_mean=0.7795
+  Ennio_Doorbell                           mirai_recall_mean=0.0000 <-- device has ZERO Mirai locally
+  Philips_B120N10_Baby_Monitor             mirai_recall_mean=0.7375
+  Provision_PT_737E_Security_Camera        mirai_recall_mean=0.7313
+  Provision_PT_838_Security_Camera         mirai_recall_mean=0.7428
+  Samsung_SNH_1011_N_Webcam                mirai_recall_mean=0.0000 <-- device has ZERO Mirai locally
+  SimpleHome_XCS7_1002_WHT_Security_Camera mirai_recall_mean=0.7506
+  SimpleHome_XCS7_1003_WHT_Security_Camera mirai_recall_mean=0.7980
+
+Saved results/phase2_local_only.json and results/phase2_summary.csv

@@ -1,0 +1,755 @@
+
+============================================================
+nbaiot / FedAvg: 9 clients, 20 rounds x 2 local epochs
+============================================================
+[93mWARNING [0m:   DEPRECATED FEATURE: The `run_simulation` function is deprecated and will be removed in a future version of Flower. Please use `flwr run` in the CLI instead to run your simulation. Refer to the Flower Tutorials for more details: https://flower.ai/docs/framework/tutorial-quickstart-pytorch.html
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[92mINFO [0m:      Starting Flower ServerApp, config: num_rounds=20, no round_timeout
+[92mINFO [0m:      
+[92mINFO [0m:      [INIT]
+[92mINFO [0m:      Requesting initial parameters from one random client
+/usr/local/lib/python3.13/dist-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+[92mINFO [0m:      Received initial parameters from one random client
+[92mINFO [0m:      Starting evaluation of initial global parameters
+[92mINFO [0m:      initial parameters (loss, other metrics): 0.9792707582654009, {'macro_f1': 0.020729241734599155}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[93mWARNING [0m:   No fit_metrics_aggregation_fn provided
+[92mINFO [0m:      fit progress: (1, 0.438416028421896, {'macro_f1': 0.561583971578104}, 19.72320133400035)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (2, 0.2815832719713879, {'macro_f1': 0.7184167280286121}, 34.08579454000028)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 3]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (3, 0.2693583856540662, {'macro_f1': 0.7306416143459338}, 48.172007098999984)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 4]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (4, 0.25902096043981004, {'macro_f1': 0.74097903956019}, 62.61773630100015)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 5]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (5, 0.25845269416307926, {'macro_f1': 0.7415473058369207}, 76.02718553100021)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 6]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (6, 0.25843564903653504, {'macro_f1': 0.741564350963465}, 90.96294364599999)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 7]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (7, 0.2582352576506636, {'macro_f1': 0.7417647423493364}, 105.15073254000026)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 8]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (8, 0.2559583428720976, {'macro_f1': 0.7440416571279024}, 119.1932950940004)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 9]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (9, 0.2531663683452009, {'macro_f1': 0.7468336316547991}, 134.2519002400004)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 10]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (10, 0.25394053032829544, {'macro_f1': 0.7460594696717046}, 148.39069323900003)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 11]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (11, 0.25337555397894995, {'macro_f1': 0.74662444602105}, 163.1797559890001)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 12]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (12, 0.2529842077471528, {'macro_f1': 0.7470157922528472}, 178.33408248600017)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 13]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (13, 0.2527977117672493, {'macro_f1': 0.7472022882327507}, 192.28971194600035)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 14]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (14, 0.2531096929120419, {'macro_f1': 0.7468903070879581}, 206.80415550500038)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 15]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (15, 0.2565738547403016, {'macro_f1': 0.7434261452596984}, 220.512169525)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 16]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (16, 0.2555635602892472, {'macro_f1': 0.7444364397107528}, 235.5246456030004)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 17]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (17, 0.25374229360882095, {'macro_f1': 0.746257706391179}, 249.41870278600027)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 18]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (18, 0.25753008892521967, {'macro_f1': 0.7424699110747803}, 262.8399091270003)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 19]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (19, 0.2595172786313701, {'macro_f1': 0.7404827213686299}, 276.7921069470003)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 20]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (20, 0.2618121742567361, {'macro_f1': 0.7381878257432639}, 290.94285939600013)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [SUMMARY]
+[92mINFO [0m:      Run finished 20 round(s) in 290.94s
+[92mINFO [0m:      	History (loss, centralized):
+[92mINFO [0m:      		round 0: 0.9792707582654009
+[92mINFO [0m:      		round 1: 0.438416028421896
+[92mINFO [0m:      		round 2: 0.2815832719713879
+[92mINFO [0m:      		round 3: 0.2693583856540662
+[92mINFO [0m:      		round 4: 0.25902096043981004
+[92mINFO [0m:      		round 5: 0.25845269416307926
+[92mINFO [0m:      		round 6: 0.25843564903653504
+[92mINFO [0m:      		round 7: 0.2582352576506636
+[92mINFO [0m:      		round 8: 0.2559583428720976
+[92mINFO [0m:      		round 9: 0.2531663683452009
+[92mINFO [0m:      		round 10: 0.25394053032829544
+[92mINFO [0m:      		round 11: 0.25337555397894995
+[92mINFO [0m:      		round 12: 0.2529842077471528
+[92mINFO [0m:      		round 13: 0.2527977117672493
+[92mINFO [0m:      		round 14: 0.2531096929120419
+[92mINFO [0m:      		round 15: 0.2565738547403016
+[92mINFO [0m:      		round 16: 0.2555635602892472
+[92mINFO [0m:      		round 17: 0.25374229360882095
+[92mINFO [0m:      		round 18: 0.25753008892521967
+[92mINFO [0m:      		round 19: 0.2595172786313701
+[92mINFO [0m:      		round 20: 0.2618121742567361
+[92mINFO [0m:      	History (metrics, centralized):
+[92mINFO [0m:      	{'macro_f1': [(0, 0.020729241734599155),
+[92mINFO [0m:      	              (1, 0.561583971578104),
+[92mINFO [0m:      	              (2, 0.7184167280286121),
+[92mINFO [0m:      	              (3, 0.7306416143459338),
+[92mINFO [0m:      	              (4, 0.74097903956019),
+[92mINFO [0m:      	              (5, 0.7415473058369207),
+[92mINFO [0m:      	              (6, 0.741564350963465),
+[92mINFO [0m:      	              (7, 0.7417647423493364),
+[92mINFO [0m:      	              (8, 0.7440416571279024),
+[92mINFO [0m:      	              (9, 0.7468336316547991),
+[92mINFO [0m:      	              (10, 0.7460594696717046),
+[92mINFO [0m:      	              (11, 0.74662444602105),
+[92mINFO [0m:      	              (12, 0.7470157922528472),
+[92mINFO [0m:      	              (13, 0.7472022882327507),
+[92mINFO [0m:      	              (14, 0.7468903070879581),
+[92mINFO [0m:      	              (15, 0.7434261452596984),
+[92mINFO [0m:      	              (16, 0.7444364397107528),
+[92mINFO [0m:      	              (17, 0.746257706391179),
+[92mINFO [0m:      	              (18, 0.7424699110747803),
+[92mINFO [0m:      	              (19, 0.7404827213686299),
+[92mINFO [0m:      	              (20, 0.7381878257432639)]}
+[92mINFO [0m:      
+nbaiot / FedAvg finished in 302.1s, final round macro_f1=0.7382
+
+============================================================
+nbaiot / FedProx: 9 clients, 20 rounds x 2 local epochs
+============================================================
+[93mWARNING [0m:   DEPRECATED FEATURE: The `run_simulation` function is deprecated and will be removed in a future version of Flower. Please use `flwr run` in the CLI instead to run your simulation. Refer to the Flower Tutorials for more details: https://flower.ai/docs/framework/tutorial-quickstart-pytorch.html
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[92mINFO [0m:      Starting Flower ServerApp, config: num_rounds=20, no round_timeout
+[92mINFO [0m:      
+[92mINFO [0m:      [INIT]
+[92mINFO [0m:      Requesting initial parameters from one random client
+[92mINFO [0m:      Received initial parameters from one random client
+[92mINFO [0m:      Starting evaluation of initial global parameters
+[92mINFO [0m:      initial parameters (loss, other metrics): 0.9104472957704365, {'macro_f1': 0.08955270422956353}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[93mWARNING [0m:   No fit_metrics_aggregation_fn provided
+[92mINFO [0m:      fit progress: (1, 0.4773868458078825, {'macro_f1': 0.5226131541921175}, 20.616768150000098)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (2, 0.3027293973169891, {'macro_f1': 0.6972706026830109}, 36.78223972700016)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 3]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (3, 0.2939381272468208, {'macro_f1': 0.7060618727531792}, 51.75779620100002)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 4]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (4, 0.2857205920633151, {'macro_f1': 0.7142794079366849}, 67.20999231300038)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 5]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (5, 0.2748702504163405, {'macro_f1': 0.7251297495836595}, 82.46627629300019)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 6]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (6, 0.2689204718079874, {'macro_f1': 0.7310795281920126}, 97.90387037400023)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 7]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (7, 0.2659954298157775, {'macro_f1': 0.7340045701842225}, 113.62811684899998)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 8]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (8, 0.26295721877653944, {'macro_f1': 0.7370427812234606}, 128.589627672)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 9]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (9, 0.2614492285479326, {'macro_f1': 0.7385507714520674}, 145.91657095900018)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 10]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (10, 0.2594093032040419, {'macro_f1': 0.7405906967959581}, 161.38548536200005)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 11]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (11, 0.25810579438734294, {'macro_f1': 0.7418942056126571}, 177.719888094)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 12]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (12, 0.2575744553679964, {'macro_f1': 0.7424255446320036}, 193.61575244100004)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 13]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (13, 0.2568543481203277, {'macro_f1': 0.7431456518796723}, 208.20005266600037)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 14]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (14, 0.2574674232002123, {'macro_f1': 0.7425325767997877}, 222.97549390700033)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 15]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (15, 0.2578229293593107, {'macro_f1': 0.7421770706406893}, 240.137635778)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 16]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (16, 0.2562219023350909, {'macro_f1': 0.7437780976649091}, 255.33373763500003)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 17]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (17, 0.2555424475845598, {'macro_f1': 0.7444575524154402}, 270.1596112330003)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 18]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (18, 0.25614650149151863, {'macro_f1': 0.7438534985084814}, 286.3715142410001)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 19]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (19, 0.2550344405680456, {'macro_f1': 0.7449655594319544}, 303.2518272870002)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 20]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (20, 0.2537153035771371, {'macro_f1': 0.7462846964228629}, 319.665925625)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [SUMMARY]
+[92mINFO [0m:      Run finished 20 round(s) in 319.67s
+[92mINFO [0m:      	History (loss, centralized):
+[92mINFO [0m:      		round 0: 0.9104472957704365
+[92mINFO [0m:      		round 1: 0.4773868458078825
+[92mINFO [0m:      		round 2: 0.3027293973169891
+[92mINFO [0m:      		round 3: 0.2939381272468208
+[92mINFO [0m:      		round 4: 0.2857205920633151
+[92mINFO [0m:      		round 5: 0.2748702504163405
+[92mINFO [0m:      		round 6: 0.2689204718079874
+[92mINFO [0m:      		round 7: 0.2659954298157775
+[92mINFO [0m:      		round 8: 0.26295721877653944
+[92mINFO [0m:      		round 9: 0.2614492285479326
+[92mINFO [0m:      		round 10: 0.2594093032040419
+[92mINFO [0m:      		round 11: 0.25810579438734294
+[92mINFO [0m:      		round 12: 0.2575744553679964
+[92mINFO [0m:      		round 13: 0.2568543481203277
+[92mINFO [0m:      		round 14: 0.2574674232002123
+[92mINFO [0m:      		round 15: 0.2578229293593107
+[92mINFO [0m:      		round 16: 0.2562219023350909
+[92mINFO [0m:      		round 17: 0.2555424475845598
+[92mINFO [0m:      		round 18: 0.25614650149151863
+[92mINFO [0m:      		round 19: 0.2550344405680456
+[92mINFO [0m:      		round 20: 0.2537153035771371
+[92mINFO [0m:      	History (metrics, centralized):
+[92mINFO [0m:      	{'macro_f1': [(0, 0.08955270422956353),
+[92mINFO [0m:      	              (1, 0.5226131541921175),
+[92mINFO [0m:      	              (2, 0.6972706026830109),
+[92mINFO [0m:      	              (3, 0.7060618727531792),
+[92mINFO [0m:      	              (4, 0.7142794079366849),
+[92mINFO [0m:      	              (5, 0.7251297495836595),
+[92mINFO [0m:      	              (6, 0.7310795281920126),
+[92mINFO [0m:      	              (7, 0.7340045701842225),
+[92mINFO [0m:      	              (8, 0.7370427812234606),
+[92mINFO [0m:      	              (9, 0.7385507714520674),
+[92mINFO [0m:      	              (10, 0.7405906967959581),
+[92mINFO [0m:      	              (11, 0.7418942056126571),
+[92mINFO [0m:      	              (12, 0.7424255446320036),
+[92mINFO [0m:      	              (13, 0.7431456518796723),
+[92mINFO [0m:      	              (14, 0.7425325767997877),
+[92mINFO [0m:      	              (15, 0.7421770706406893),
+[92mINFO [0m:      	              (16, 0.7437780976649091),
+[92mINFO [0m:      	              (17, 0.7444575524154402),
+[92mINFO [0m:      	              (18, 0.7438534985084814),
+[92mINFO [0m:      	              (19, 0.7449655594319544),
+[92mINFO [0m:      	              (20, 0.7462846964228629)]}
+[92mINFO [0m:      
+nbaiot / FedProx finished in 329.2s, final round macro_f1=0.7463
+
+============================================================
+tonIoT / FedAvg: 9 clients, 20 rounds x 2 local epochs
+============================================================
+[93mWARNING [0m:   DEPRECATED FEATURE: The `run_simulation` function is deprecated and will be removed in a future version of Flower. Please use `flwr run` in the CLI instead to run your simulation. Refer to the Flower Tutorials for more details: https://flower.ai/docs/framework/tutorial-quickstart-pytorch.html
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[92mINFO [0m:      Starting Flower ServerApp, config: num_rounds=20, no round_timeout
+[92mINFO [0m:      
+[92mINFO [0m:      [INIT]
+[92mINFO [0m:      Requesting initial parameters from one random client
+[92mINFO [0m:      Received initial parameters from one random client
+[92mINFO [0m:      Starting evaluation of initial global parameters
+[92mINFO [0m:      initial parameters (loss, other metrics): 0.9911757239895461, {'macro_f1': 0.008824276010453902}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[93mWARNING [0m:   No fit_metrics_aggregation_fn provided
+[92mINFO [0m:      fit progress: (1, 0.5300051285822698, {'macro_f1': 0.4699948714177302}, 6.604004412999984)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (2, 0.5313367728776839, {'macro_f1': 0.46866322712231606}, 7.284065130999807)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 3]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (3, 0.4929893754345952, {'macro_f1': 0.5070106245654048}, 7.974358349999875)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 4]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (4, 0.48917497999003223, {'macro_f1': 0.5108250200099678}, 8.653537529000005)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 5]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (5, 0.4794038502701803, {'macro_f1': 0.5205961497298197}, 9.440285683999718)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 6]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (6, 0.471090187309662, {'macro_f1': 0.528909812690338}, 10.120434017999742)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 7]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (7, 0.4633645553806096, {'macro_f1': 0.5366354446193904}, 10.894919271999697)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 8]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (8, 0.4619874858129439, {'macro_f1': 0.5380125141870561}, 11.573303542999838)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 9]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (9, 0.46193297033490743, {'macro_f1': 0.5380670296650926}, 12.274403853999956)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 10]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (10, 0.4622095056135541, {'macro_f1': 0.5377904943864459}, 12.956442972999866)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 11]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (11, 0.46217342322811583, {'macro_f1': 0.5378265767718842}, 13.63503639299961)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 12]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (12, 0.4615716186899147, {'macro_f1': 0.5384283813100853}, 14.219279533999725)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 13]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (13, 0.46113178643606134, {'macro_f1': 0.5388682135639387}, 14.89805774899969)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 14]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (14, 0.4604196513093387, {'macro_f1': 0.5395803486906613}, 15.582676245999664)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 15]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (15, 0.4584256915979811, {'macro_f1': 0.5415743084020189}, 16.163290325999697)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 16]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (16, 0.454566327686446, {'macro_f1': 0.545433672313554}, 16.84599901799993)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 17]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (17, 0.4450742240468285, {'macro_f1': 0.5549257759531715}, 17.629696090999914)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 18]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (18, 0.4449170004251394, {'macro_f1': 0.5550829995748606}, 18.312461320999773)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 19]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (19, 0.4538268031112912, {'macro_f1': 0.5461731968887088}, 18.99436141399974)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 20]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (20, 0.456166278880372, {'macro_f1': 0.543833721119628}, 19.57740308299981)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [SUMMARY]
+[92mINFO [0m:      Run finished 20 round(s) in 19.58s
+[92mINFO [0m:      	History (loss, centralized):
+[92mINFO [0m:      		round 0: 0.9911757239895461
+[92mINFO [0m:      		round 1: 0.5300051285822698
+[92mINFO [0m:      		round 2: 0.5313367728776839
+[92mINFO [0m:      		round 3: 0.4929893754345952
+[92mINFO [0m:      		round 4: 0.48917497999003223
+[92mINFO [0m:      		round 5: 0.4794038502701803
+[92mINFO [0m:      		round 6: 0.471090187309662
+[92mINFO [0m:      		round 7: 0.4633645553806096
+[92mINFO [0m:      		round 8: 0.4619874858129439
+[92mINFO [0m:      		round 9: 0.46193297033490743
+[92mINFO [0m:      		round 10: 0.4622095056135541
+[92mINFO [0m:      		round 11: 0.46217342322811583
+[92mINFO [0m:      		round 12: 0.4615716186899147
+[92mINFO [0m:      		round 13: 0.46113178643606134
+[92mINFO [0m:      		round 14: 0.4604196513093387
+[92mINFO [0m:      		round 15: 0.4584256915979811
+[92mINFO [0m:      		round 16: 0.454566327686446
+[92mINFO [0m:      		round 17: 0.4450742240468285
+[92mINFO [0m:      		round 18: 0.4449170004251394
+[92mINFO [0m:      		round 19: 0.4538268031112912
+[92mINFO [0m:      		round 20: 0.456166278880372
+[92mINFO [0m:      	History (metrics, centralized):
+[92mINFO [0m:      	{'macro_f1': [(0, 0.008824276010453902),
+[92mINFO [0m:      	              (1, 0.4699948714177302),
+[92mINFO [0m:      	              (2, 0.46866322712231606),
+[92mINFO [0m:      	              (3, 0.5070106245654048),
+[92mINFO [0m:      	              (4, 0.5108250200099678),
+[92mINFO [0m:      	              (5, 0.5205961497298197),
+[92mINFO [0m:      	              (6, 0.528909812690338),
+[92mINFO [0m:      	              (7, 0.5366354446193904),
+[92mINFO [0m:      	              (8, 0.5380125141870561),
+[92mINFO [0m:      	              (9, 0.5380670296650926),
+[92mINFO [0m:      	              (10, 0.5377904943864459),
+[92mINFO [0m:      	              (11, 0.5378265767718842),
+[92mINFO [0m:      	              (12, 0.5384283813100853),
+[92mINFO [0m:      	              (13, 0.5388682135639387),
+[92mINFO [0m:      	              (14, 0.5395803486906613),
+[92mINFO [0m:      	              (15, 0.5415743084020189),
+[92mINFO [0m:      	              (16, 0.545433672313554),
+[92mINFO [0m:      	              (17, 0.5549257759531715),
+[92mINFO [0m:      	              (18, 0.5550829995748606),
+[92mINFO [0m:      	              (19, 0.5461731968887088),
+[92mINFO [0m:      	              (20, 0.543833721119628)]}
+[92mINFO [0m:      
+tonIoT / FedAvg finished in 27.4s, final round macro_f1=0.5438
+
+============================================================
+tonIoT / FedProx: 9 clients, 20 rounds x 2 local epochs
+============================================================
+[93mWARNING [0m:   DEPRECATED FEATURE: The `run_simulation` function is deprecated and will be removed in a future version of Flower. Please use `flwr run` in the CLI instead to run your simulation. Refer to the Flower Tutorials for more details: https://flower.ai/docs/framework/tutorial-quickstart-pytorch.html
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[92mINFO [0m:      Starting Flower ServerApp, config: num_rounds=20, no round_timeout
+[92mINFO [0m:      
+[92mINFO [0m:      [INIT]
+[92mINFO [0m:      Requesting initial parameters from one random client
+[92mINFO [0m:      Received initial parameters from one random client
+[92mINFO [0m:      Starting evaluation of initial global parameters
+[92mINFO [0m:      initial parameters (loss, other metrics): 0.911893650730824, {'macro_f1': 0.08810634926917606}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[93mWARNING [0m:   No fit_metrics_aggregation_fn provided
+[92mINFO [0m:      fit progress: (1, 0.5403662031703904, {'macro_f1': 0.4596337968296096}, 12.9528216409999)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (2, 0.5302243241264843, {'macro_f1': 0.46977567587351565}, 13.751570636999986)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 3]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (3, 0.532634072429775, {'macro_f1': 0.467365927570225}, 14.746680503000334)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 4]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (4, 0.5262375250427469, {'macro_f1': 0.47376247495725315}, 15.640287293000256)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 5]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (5, 0.5177498288272095, {'macro_f1': 0.4822501711727905}, 16.53342346599993)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 6]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (6, 0.5168757710639263, {'macro_f1': 0.48312422893607365}, 17.322774479000145)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 7]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (7, 0.47121819049749947, {'macro_f1': 0.5287818095025005}, 18.236726090000047)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 8]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (8, 0.4623958968480769, {'macro_f1': 0.5376041031519231}, 19.022489404000225)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 9]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (9, 0.46182840829594973, {'macro_f1': 0.5381715917040503}, 19.927353909999965)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 10]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (10, 0.4618140756430542, {'macro_f1': 0.5381859243569458}, 20.70846992299994)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 11]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (11, 0.46165704023978793, {'macro_f1': 0.5383429597602121}, 21.584313142000155)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 12]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (12, 0.46246379607160937, {'macro_f1': 0.5375362039283906}, 22.367562333000024)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 13]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (13, 0.46246439842503506, {'macro_f1': 0.5375356015749649}, 23.15190801200015)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 14]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (14, 0.4614648390187035, {'macro_f1': 0.5385351609812965}, 23.83611959200016)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 15]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (15, 0.46047874983448567, {'macro_f1': 0.5395212501655143}, 24.616074694999952)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 16]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (16, 0.4597928390141772, {'macro_f1': 0.5402071609858228}, 25.3925371549999)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 17]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (17, 0.45880222293429396, {'macro_f1': 0.541197777065706}, 26.22988307500009)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 18]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (18, 0.45589029579542517, {'macro_f1': 0.5441097042045748}, 27.00598604400011)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 19]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (19, 0.44229801697526616, {'macro_f1': 0.5577019830247338}, 27.895969093000076)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 20]
+[92mINFO [0m:      configure_fit: strategy sampled 9 clients (out of 9)
+[92mINFO [0m:      aggregate_fit: received 9 results and 0 failures
+[92mINFO [0m:      fit progress: (20, 0.4425467802318155, {'macro_f1': 0.5574532197681845}, 28.584484298999996)
+[92mINFO [0m:      configure_evaluate: no clients selected, skipping evaluation
+[92mINFO [0m:      
+[92mINFO [0m:      [SUMMARY]
+[92mINFO [0m:      Run finished 20 round(s) in 28.58s
+[92mINFO [0m:      	History (loss, centralized):
+[92mINFO [0m:      		round 0: 0.911893650730824
+[92mINFO [0m:      		round 1: 0.5403662031703904
+[92mINFO [0m:      		round 2: 0.5302243241264843
+[92mINFO [0m:      		round 3: 0.532634072429775
+[92mINFO [0m:      		round 4: 0.5262375250427469
+[92mINFO [0m:      		round 5: 0.5177498288272095
+[92mINFO [0m:      		round 6: 0.5168757710639263
+[92mINFO [0m:      		round 7: 0.47121819049749947
+[92mINFO [0m:      		round 8: 0.4623958968480769
+[92mINFO [0m:      		round 9: 0.46182840829594973
+[92mINFO [0m:      		round 10: 0.4618140756430542
+[92mINFO [0m:      		round 11: 0.46165704023978793
+[92mINFO [0m:      		round 12: 0.46246379607160937
+[92mINFO [0m:      		round 13: 0.46246439842503506
+[92mINFO [0m:      		round 14: 0.4614648390187035
+[92mINFO [0m:      		round 15: 0.46047874983448567
+[92mINFO [0m:      		round 16: 0.4597928390141772
+[92mINFO [0m:      		round 17: 0.45880222293429396
+[92mINFO [0m:      		round 18: 0.45589029579542517
+[92mINFO [0m:      		round 19: 0.44229801697526616
+[92mINFO [0m:      		round 20: 0.4425467802318155
+[92mINFO [0m:      	History (metrics, centralized):
+[92mINFO [0m:      	{'macro_f1': [(0, 0.08810634926917606),
+[92mINFO [0m:      	              (1, 0.4596337968296096),
+[92mINFO [0m:      	              (2, 0.46977567587351565),
+[92mINFO [0m:      	              (3, 0.467365927570225),
+[92mINFO [0m:      	              (4, 0.47376247495725315),
+[92mINFO [0m:      	              (5, 0.4822501711727905),
+[92mINFO [0m:      	              (6, 0.48312422893607365),
+[92mINFO [0m:      	              (7, 0.5287818095025005),
+[92mINFO [0m:      	              (8, 0.5376041031519231),
+[92mINFO [0m:      	              (9, 0.5381715917040503),
+[92mINFO [0m:      	              (10, 0.5381859243569458),
+[92mINFO [0m:      	              (11, 0.5383429597602121),
+[92mINFO [0m:      	              (12, 0.5375362039283906),
+[92mINFO [0m:      	              (13, 0.5375356015749649),
+[92mINFO [0m:      	              (14, 0.5385351609812965),
+[92mINFO [0m:      	              (15, 0.5395212501655143),
+[92mINFO [0m:      	              (16, 0.5402071609858228),
+[92mINFO [0m:      	              (17, 0.541197777065706),
+[92mINFO [0m:      	              (18, 0.5441097042045748),
+[92mINFO [0m:      	              (19, 0.5577019830247338),
+[92mINFO [0m:      	              (20, 0.5574532197681845)]}
+[92mINFO [0m:      
+tonIoT / FedProx finished in 38.3s, final round macro_f1=0.5575
+
+
+=== Phase 3 summary ===
+{'dataset': 'nbaiot', 'strategy': 'FedAvg', 'final_macro_f1': 0.7382, 'train_seconds': 302.1, 'final_mirai_recall_mean': 0.7448}
+{'dataset': 'nbaiot', 'strategy': 'FedProx', 'final_macro_f1': 0.7463, 'train_seconds': 329.2, 'final_mirai_recall_mean': 0.7524}
+{'dataset': 'tonIoT', 'strategy': 'FedAvg', 'final_macro_f1': 0.5438, 'train_seconds': 27.4}
+{'dataset': 'tonIoT', 'strategy': 'FedProx', 'final_macro_f1': 0.5575, 'train_seconds': 38.3}
+
+Saved results/phase3_federated.json and results/phase3_summary.csv

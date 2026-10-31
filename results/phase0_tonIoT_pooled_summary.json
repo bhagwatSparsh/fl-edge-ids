@@ -1,0 +1,25 @@
+{
+  "classes": [
+    "backdoor",
+    "ddos",
+    "dos",
+    "injection",
+    "mitm",
+    "normal",
+    "password",
+    "ransomware",
+    "scanning",
+    "xss"
+  ],
+  "original_rows": 211043,
+  "train": 74938,
+  "test": 18735,
+  "distinct_rows": 93673,
+  "duplicate_pct": 55.6,
+  "leakage_check": {
+    "n_train": 74938,
+    "n_test": 18735,
+    "n_overlap_hashes": 0,
+    "passed": true
+  }
+}

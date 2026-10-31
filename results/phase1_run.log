@@ -1,0 +1,70 @@
+
+============================================================
+N-BaIoT: 516305 train / 129077 test rows, 115 features, 11 classes
+============================================================
+
+--- MLP on N-BaIoT ---
+  epoch 1: train_loss=0.5023 val_macro_f1=0.8146
+  epoch 2: train_loss=0.2574 val_macro_f1=0.8603
+  epoch 3: train_loss=0.1896 val_macro_f1=0.8666
+  epoch 4: train_loss=0.1676 val_macro_f1=0.8628
+  epoch 5: train_loss=0.1596 val_macro_f1=0.8736
+  epoch 6: train_loss=0.1543 val_macro_f1=0.8694
+  epoch 7: train_loss=0.1542 val_macro_f1=0.8738
+  epoch 8: train_loss=0.1485 val_macro_f1=0.8678
+  epoch 9: train_loss=0.1497 val_macro_f1=0.8727
+  epoch 10: train_loss=0.1452 val_macro_f1=0.8688
+  early stop at epoch 10 (no improvement for 3 epochs)
+MLP on N-BaIoT: TEST macro-F1=0.8743 | 23819 params | 95.5KB (f32) / 49.0KB (f16) | trained in 29.7s
+
+--- CNN_BiLSTM on N-BaIoT ---
+  epoch 1: train_loss=0.8212 val_macro_f1=0.6633
+  epoch 2: train_loss=0.5990 val_macro_f1=0.6771
+  epoch 3: train_loss=0.4370 val_macro_f1=0.7497
+  epoch 4: train_loss=0.3677 val_macro_f1=0.7671
+  epoch 5: train_loss=0.2890 val_macro_f1=0.8222
+  epoch 6: train_loss=0.2414 val_macro_f1=0.8329
+  epoch 7: train_loss=0.2258 val_macro_f1=0.8522
+  epoch 8: train_loss=0.1856 val_macro_f1=0.8623
+  epoch 9: train_loss=0.1779 val_macro_f1=0.8635
+  epoch 10: train_loss=0.1719 val_macro_f1=0.8673
+  epoch 11: train_loss=0.1967 val_macro_f1=0.8530
+  epoch 12: train_loss=0.1740 val_macro_f1=0.8664
+  epoch 13: train_loss=0.1600 val_macro_f1=0.8637
+  early stop at epoch 13 (no improvement for 3 epochs)
+CNN_BiLSTM on N-BaIoT: TEST macro-F1=0.8669 | 81867 params | 324.6KB (f32) / 164.7KB (f16) | trained in 1780.9s
+
+============================================================
+TON_IoT: 74938 train / 18735 test rows, 60 features, 10 classes
+============================================================
+
+--- MLP on TON_IoT ---
+  epoch 1: train_loss=1.3878 val_macro_f1=0.4749
+  epoch 2: train_loss=0.9247 val_macro_f1=0.4661
+  epoch 3: train_loss=0.8789 val_macro_f1=0.4619
+  epoch 4: train_loss=0.8620 val_macro_f1=0.4978
+  epoch 5: train_loss=0.8475 val_macro_f1=0.4672
+  epoch 6: train_loss=0.8365 val_macro_f1=0.4620
+  epoch 7: train_loss=0.8272 val_macro_f1=0.5199
+  epoch 8: train_loss=0.8156 val_macro_f1=0.4656
+  epoch 9: train_loss=0.7996 val_macro_f1=0.4940
+  epoch 10: train_loss=0.7992 val_macro_f1=0.5143
+  early stop at epoch 10 (no improvement for 3 epochs)
+MLP on TON_IoT: TEST macro-F1=0.5236 | 16714 params | 67.8KB (f32) / 35.1KB (f16) | trained in 3.8s
+
+--- CNN_BiLSTM on TON_IoT ---
+  epoch 1: train_loss=1.6134 val_macro_f1=0.3586
+  epoch 2: train_loss=1.0349 val_macro_f1=0.4235
+  epoch 3: train_loss=0.9109 val_macro_f1=0.4786
+  epoch 4: train_loss=0.8598 val_macro_f1=0.5084
+  epoch 5: train_loss=0.8810 val_macro_f1=0.4271
+  epoch 6: train_loss=0.8575 val_macro_f1=0.4966
+  epoch 7: train_loss=0.8211 val_macro_f1=0.5272
+  epoch 8: train_loss=0.8140 val_macro_f1=0.5059
+  epoch 9: train_loss=0.7960 val_macro_f1=0.4276
+  epoch 10: train_loss=0.8179 val_macro_f1=0.5165
+  early stop at epoch 10 (no improvement for 3 epochs)
+CNN_BiLSTM on TON_IoT: TEST macro-F1=0.5295 | 81802 params | 324.4KB (f32) / 164.6KB (f16) | trained in 106.3s
+
+
+Saved results/phase1_centralized_baselines.json

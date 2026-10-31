@@ -1,0 +1,32 @@
+
+============================================================
+nbaiot: SHAP over 9 clients
+============================================================
+  client 0 (n=171440): top features -> ['H_L0.1_weight', 'MI_dir_L0.1_weight', 'MI_dir_L0.01_weight', 'H_L0.01_weight', 'HH_jit_L0.1_weight']
+  client 1 (n=168438): top features -> ['H_L0.1_weight', 'MI_dir_L0.1_weight', 'HH_jit_L0.1_weight', 'H_L0.01_mean', 'HH_L0.1_weight']
+  client 2 (n=93308): top features -> ['H_L0.1_weight', 'MI_dir_L0.1_weight', 'MI_dir_L0.01_weight', 'H_L0.01_weight', 'HH_jit_L0.1_weight']
+  client 3 (n=173896): top features -> ['H_L0.1_weight', 'MI_dir_L0.1_weight', 'MI_dir_L0.01_weight', 'H_L0.01_weight', 'HH_jit_L0.1_weight']
+  client 4 (n=172615): top features -> ['MI_dir_L0.01_weight', 'H_L0.01_weight', 'H_L0.1_weight', 'MI_dir_L0.1_weight', 'HH_jit_L0.1_weight']
+  client 5 (n=173879): top features -> ['H_L0.1_weight', 'MI_dir_L0.1_weight', 'MI_dir_L0.01_weight', 'H_L0.01_weight', 'HH_jit_L0.1_weight']
+  client 6 (n=93894): top features -> ['H_L0.1_weight', 'MI_dir_L0.1_weight', 'MI_dir_L0.01_weight', 'H_L0.01_weight', 'HH_jit_L0.1_weight']
+  client 7 (n=172920): top features -> ['H_L0.1_weight', 'MI_dir_L0.1_weight', 'HH_jit_L0.1_weight', 'MI_dir_L0.01_weight', 'HH_L0.1_weight']
+  client 8 (n=172225): top features -> ['H_L0.1_weight', 'MI_dir_L0.1_weight', 'H_L0.01_mean', 'HH_jit_L0.1_weight', 'MI_dir_L0.01_mean']
+  Federated vs centralized feature-ranking agreement (Spearman rho): 0.7012 (p=2.62e-18)
+  Top 5 overall (federated): ['H_L0.1_weight', 'MI_dir_L0.1_weight', 'MI_dir_L0.01_weight', 'H_L0.01_weight', 'HH_jit_L0.1_weight']
+
+============================================================
+tonIoT: SHAP over 9 clients
+============================================================
+  client 0 (n=14832): top features -> ['conn_state_S0', 'src_pkts', 'conn_state_SHR', 'dns_qtype', 'service_http']
+  client 1 (n=4792): top features -> ['conn_state_S3', 'conn_state_REJ', 'service_http', 'conn_state_S1', 'dns_rcode']
+  client 2 (n=5277): top features -> ['conn_state_REJ', 'service_http', 'conn_state_SHR', 'dns_qtype', 'service_-']
+  client 3 (n=6486): top features -> ['conn_state_S0', 'conn_state_S3', 'src_pkts', 'dns_query', 'conn_state_S1']
+  client 4 (n=5732): top features -> ['conn_state_S3', 'conn_state_REJ', 'dns_rcode', 'service_http', 'service_-']
+  client 5 (n=3636): top features -> ['conn_state_S0', 'dns_qtype', 'src_pkts', 'conn_state_SHR', 'dns_query']
+  client 6 (n=5992): top features -> ['conn_state_REJ', 'service_http', 'conn_state_S0', 'service_-', 'src_pkts']
+  client 7 (n=8964): top features -> ['conn_state_S3', 'conn_state_REJ', 'conn_state_S1', 'service_http', 'service_-']
+  client 8 (n=4234): top features -> ['service_http', 'conn_state_SF', 'dns_query', 'conn_state_S3', 'conn_state_RSTR']
+  Federated vs centralized feature-ranking agreement (Spearman rho): 0.9041 (p=4.35e-23)
+  Top 5 overall (federated): ['conn_state_S0', 'conn_state_REJ', 'service_http', 'conn_state_S3', 'service_-']
+
+Saved results/phase5_shap.json

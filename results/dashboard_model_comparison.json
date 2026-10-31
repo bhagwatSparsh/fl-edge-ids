@@ -1,0 +1,58 @@
+[
+  {
+    "dataset": "N-BaIoT",
+    "approach": "Centralized (pools everything)",
+    "macro_f1": 0.8758040365014277,
+    "macro_f1_std": 0.0012760294296028738,
+    "n_seeds": 3
+  },
+  {
+    "dataset": "N-BaIoT",
+    "approach": "Local-only (no sharing, avg of 9 clients)",
+    "macro_f1": 0.5994786623572634,
+    "macro_f1_std": 0.007851351242819406,
+    "n_seeds": 3
+  },
+  {
+    "dataset": "N-BaIoT",
+    "approach": "Federated FedAvg",
+    "macro_f1": 0.7416636199085922,
+    "macro_f1_std": 0.004470640089057513,
+    "n_seeds": 3
+  },
+  {
+    "dataset": "N-BaIoT",
+    "approach": "Federated FedProx",
+    "macro_f1": 0.7450280681214945,
+    "macro_f1_std": 0.002390369071731275,
+    "n_seeds": 3
+  },
+  {
+    "dataset": "TON_IoT",
+    "approach": "Centralized (pools everything)",
+    "macro_f1": 0.5140516782323539,
+    "macro_f1_std": 0.01224753770798973,
+    "n_seeds": 3
+  },
+  {
+    "dataset": "TON_IoT",
+    "approach": "Local-only (no sharing, avg of 9 clients)",
+    "macro_f1": 0.438824165238549,
+    "macro_f1_std": 0.021020582759913056,
+    "n_seeds": 3
+  },
+  {
+    "dataset": "TON_IoT",
+    "approach": "Federated FedAvg",
+    "macro_f1": 0.5424305541536546,
+    "macro_f1_std": 0.0012399375729036841,
+    "n_seeds": 3
+  },
+  {
+    "dataset": "TON_IoT",
+    "approach": "Federated FedProx",
+    "macro_f1": 0.5513633083969198,
+    "macro_f1_std": 0.0077291324165806785,
+    "n_seeds": 3
+  }
+]

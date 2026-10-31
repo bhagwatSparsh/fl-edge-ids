@@ -1,0 +1,22 @@
+[
+  {
+    "item": "Model updates (float32), measured",
+    "bytes": 7661277,
+    "method": "measured"
+  },
+  {
+    "item": "Model updates (float16), estimated",
+    "bytes": 3931718,
+    "method": "estimated"
+  },
+  {
+    "item": "Raw feature-CSV equivalent, estimated",
+    "bytes": 1315324233,
+    "method": "estimated"
+  },
+  {
+    "item": "Raw packet-capture equivalent, estimated",
+    "bytes": 167113800,
+    "method": "estimated"
+  }
+]

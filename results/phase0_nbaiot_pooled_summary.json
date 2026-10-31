@@ -1,0 +1,13 @@
+{
+  "original_rows": 1772641,
+  "train": 516305,
+  "test": 129077,
+  "distinct_rows": 645382,
+  "duplicate_pct": 63.6,
+  "leakage_check": {
+    "n_train": 516305,
+    "n_test": 129077,
+    "n_overlap_hashes": 0,
+    "passed": true
+  }
+}

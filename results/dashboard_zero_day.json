@@ -1,0 +1,56 @@
+[
+  {
+    "dataset": "N-BaIoT",
+    "strategy": "Centralized",
+    "held_out_family": "an entire Mirai family",
+    "in_distribution_macro_f1": 0.7771962435011637,
+    "in_distribution_macro_f1_std": 0.0004714911820727881,
+    "zero_day_catch_rate": 0.4527404761904762,
+    "zero_day_catch_rate_std": 0.05662606709060465
+  },
+  {
+    "dataset": "N-BaIoT",
+    "strategy": "FedAvg",
+    "held_out_family": "an entire Mirai family",
+    "in_distribution_macro_f1": 0.7584182558071502,
+    "in_distribution_macro_f1_std": 0.0019196922003517122,
+    "zero_day_catch_rate": 0.6478285714285714,
+    "zero_day_catch_rate_std": 0.05712463346910503
+  },
+  {
+    "dataset": "N-BaIoT",
+    "strategy": "FedProx",
+    "held_out_family": "an entire Mirai family",
+    "in_distribution_macro_f1": 0.7572038833509507,
+    "in_distribution_macro_f1_std": 0.003220802939094453,
+    "zero_day_catch_rate": 0.8523752380952381,
+    "zero_day_catch_rate_std": 0.06976778511215458
+  },
+  {
+    "dataset": "TON_IoT",
+    "strategy": "Centralized",
+    "held_out_family": "ransomware",
+    "in_distribution_macro_f1": 0.5656142573772072,
+    "in_distribution_macro_f1_std": 0.004278375330602257,
+    "zero_day_catch_rate": 0.99365,
+    "zero_day_catch_rate_std": 0.0
+  },
+  {
+    "dataset": "TON_IoT",
+    "strategy": "FedAvg",
+    "held_out_family": "ransomware",
+    "in_distribution_macro_f1": 0.5035902672117663,
+    "in_distribution_macro_f1_std": 0.002197491178969321,
+    "zero_day_catch_rate": 0.7366,
+    "zero_day_catch_rate_std": 0.4354742271363484
+  },
+  {
+    "dataset": "TON_IoT",
+    "strategy": "FedProx",
+    "held_out_family": "ransomware",
+    "in_distribution_macro_f1": 0.46435970007388755,
+    "in_distribution_macro_f1_std": 0.007296416462545401,
+    "zero_day_catch_rate": 0.48401666666666665,
+    "zero_day_catch_rate_std": 0.43157060353241544
+  }
+]

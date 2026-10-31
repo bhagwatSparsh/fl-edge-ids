@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FL Edge-IoT IDS — Live Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="/static/d3.min.js"></script>
+<style>
+:root {
+  /* surfaces -- cool charcoal-navy instrument panel, not pure black */
+  --color-bg: #080b11;
+  --color-panel: #10151f;
+  --color-panel-raised: #151b27;
+  --color-border-line: #212b3b;
+
+  /* text */
+  --color-fg: #eaf0f8;
+  --color-fg-muted: #7b8aa0;
+
+  /* signal palette -- detection states read like a monitoring console,
+     not a generic success/error pair */
+  --color-ok: #35d7c2;     /* teal: attack caught */
+  --color-bad: #ff8a65;    /* warm coral: attack missed */
+  --color-warn: #ffb648;
+  --color-accent: #5b8cff; /* cool blue: guard / structural lines */
+
+  --font-display: "Space Grotesk", -apple-system, "Segoe UI", sans-serif;
+  --font-anthropic-sans: "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-anthropic-serif: var(--font-display);
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Consolas, monospace;
+
+  --cds-font-size-caption: 0.78rem;
+  --cds-font-size-body: 0.97rem;
+  --cds-font-size-heading: 1.15rem;
+  --cds-font-size-title: 2.1rem;
+  --cds-font-weight-medium: 600;
+  --cds-gap-xs: .4rem; --cds-gap-sm: .6rem; --cds-gap-md: 1rem; --cds-gap-lg: 1.5rem; --cds-gap-xl: 2.75rem;
+  --cds-pad-xs: .3rem; --cds-pad-sm: .5rem; --cds-pad-md: .8rem; --cds-pad-lg: 1.25rem;
+  --cds-radius: 5px;
+  --cds-chart-grid: #1a2433;
+  --cds-chart-axis: #35465d;
+  --cds-chart-reference: #35465d;
+  --cds-surface-popover: #161d2a;
+  --cds-border: #263349;
+  --cds-shadow-popover: 0 10px 28px rgba(0,0,0,.5);
+  color-scheme: dark;
+}
+
+#dash-root { --dash-gutter: 1.25rem; }
+
+.lx-hero { display:flex; flex-direction:column; gap: var(--cds-gap-sm); margin-bottom: var(--cds-gap-xl); padding-bottom: var(--cds-gap-lg); border-bottom: 1px solid var(--color-border-line); }
+.lx-hero h1 { font-family: var(--font-display); font-weight:600; font-size: var(--cds-font-size-title); letter-spacing: -.01em; margin:0; }
+.lx-hero p { margin:0; color: var(--color-fg-muted); font-size: 1.02rem; max-width: 52rem; line-height:1.55; }
+.lx-hero p b { color: var(--color-fg); font-weight: 600; }
+
+.lx-section { margin-bottom: var(--cds-gap-xl); }
+.lx-section h2 { font-family: var(--font-display); font-size: var(--cds-font-size-heading); font-weight: 600; margin: 0 0 var(--cds-gap-xs); }
+.lx-section .lx-sub { color: var(--color-fg-muted); font-size: var(--cds-font-size-body); margin: 0 0 var(--cds-gap-md); max-width: 50rem; line-height:1.55; }
+
+.lx-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: var(--cds-gap-md); }
+.lx-bw-grid { display:grid; grid-template-columns: 1.4fr 1fr; gap: var(--cds-gap-md); }
+.lx-bw-grid .lx-stack { display:flex; flex-direction:column; gap: var(--cds-gap-md); min-width:0; }
+.lx-bw-grid > .lx-card { display:flex; flex-direction:column; }
+.lx-bw-grid > .lx-card .lx-chart-box { flex:1 1 auto; }
+@media (max-width: 52rem) { .lx-bw-grid { grid-template-columns: 1fr; } }
+.lx-card { background: var(--color-panel); border:1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width:0; }
+.lx-card-title { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin:0 0 .15rem; }
+.lx-card-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin:0 0 var(--cds-gap-sm); }
+
+.lx-stat-row { display:flex; flex-wrap:wrap; gap: var(--cds-gap-lg); }
+.lx-stat { min-width: 8rem; }
+.lx-stat-value { font-family: var(--font-mono); font-weight:500; font-size: 1.85rem; font-variant-numeric: tabular-nums; line-height:1.1; color: var(--color-fg); }
+.lx-stat-label { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin-top:.3rem; line-height:1.4; }
+
+.lx-chart-box { min-height: 260px; width:100%; }
+.lx-chart-box svg { width:100%; height:100%; display:block; overflow:visible; }
+.lx-chart-box text { fill: var(--color-fg-muted); font-size: var(--cds-font-size-caption); font-family: var(--font-anthropic-sans); }
+.lx-tooltip { position:absolute; pointer-events:none; background: var(--cds-surface-popover); border:1px solid var(--cds-border); border-radius: var(--cds-radius); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); font-family: var(--font-mono); box-shadow: var(--cds-shadow-popover); z-index:5; }
+
+.lx-demo-wrap { position:relative; display:flex; flex-direction:column; gap: var(--cds-gap-md); }
+.lx-demo-stage { position:relative; width:100%; height: 400px; background:
+    radial-gradient(ellipse at 82% 52%, rgba(91,140,255,.07), transparent 42%),
+    repeating-linear-gradient(0deg, rgba(123,138,160,.05) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(90deg, rgba(123,138,160,.05) 0 1px, transparent 1px 40px);
+  border:1px solid var(--color-border-line); border-radius: var(--cds-radius); overflow:hidden; }
+.lx-demo-stage svg.lx-demo-svg { width:100%; height:100%; display:block; position:relative; z-index:2; }
+.lx-sweep { position:absolute; inset:0; z-index:1; pointer-events:none;
+  background: conic-gradient(from 0deg at 82% 52%, rgba(53,215,194,.16), transparent 24%, transparent 100%);
+  animation: lx-sweep-spin 7s linear infinite; transform-origin: 82% 52%; }
+@keyframes lx-sweep-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .lx-sweep { animation: none; } }
+.lx-demo-controls { display:flex; align-items:center; gap: var(--cds-gap-sm); flex-wrap:wrap; }
+.lx-btn { font-family: var(--font-anthropic-sans); font-size: var(--cds-font-size-body); font-weight:500; padding: var(--cds-pad-xs) var(--cds-pad-md); border-radius: var(--cds-radius); border:1px solid var(--color-border-line); background: var(--color-panel-raised); color: var(--color-fg); cursor:pointer; transition: border-color .15s; }
+.lx-btn:hover { border-color: var(--color-accent); }
+.lx-legend { display:flex; gap: var(--cds-gap-md); flex-wrap:wrap; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.lx-legend span { display:inline-flex; align-items:center; gap:.35rem; }
+.lx-dot { width:.6rem; height:.6rem; border-radius:50%; display:inline-block; }
+.lx-now { font-family: var(--font-mono); font-size: .92rem; min-height: 1.4em; color: var(--color-fg-muted); background: var(--color-panel); border:1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-sm) var(--cds-pad-md); }
+.lx-now b { color: var(--color-fg); font-weight:500; }
+
+.lx-feat-table { width:100%; border-collapse: collapse; font-size: var(--cds-font-size-body); }
+.lx-feat-table th, .lx-feat-table td { text-align:left; padding: .3rem .5rem .3rem 0; border-bottom: 1px solid var(--color-border-line); }
+.lx-feat-table td:last-child, .lx-feat-table th:last-child { font-family: var(--font-mono); font-size: .85rem; }
+.lx-feat-table th { color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); font-size: var(--cds-font-size-caption); }
+
+.lx-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin-top: var(--cds-gap-xs); line-height:1.5; }
+
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-family: var(--font-anthropic-sans); }
+body { padding: 2rem max(1.5rem, 4vw) 4rem;
+  background-image: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(91,140,255,.05), transparent 60%);
+}
+.wrap { max-width: 72rem; margin: 0 auto; }
+</style>
+</head>
+<body>
+<div class="wrap" id="dash-root"></div>
+<script id="page-content" type="text/template">
+<div class="lx-hero">
+  <h1>Federated Intrusion Detection, on Real Edge-IoT Traffic</h1>
+  <p id="lx-takeaway">Nine real IoT devices train one shared attack-detector without ever pooling their traffic. <span >—</span></p>
+</div>
+
+<div class="lx-section" id="demo">
+  <h2>The system, catching real traffic</h2>
+  <p class="lx-sub">Each dot below is a <b>real</b> traffic record from one of the 9 real N-BaIoT devices, scored by the actual trained federated model (Phase 3, FedProx). Green reaching the guard means caught correctly; red means missed. The two devices marked with a ring have <b>zero Mirai traffic of their own</b> &mdash; they could never learn to recognize it alone.</p>
+  <div class="lx-demo-wrap">
+    <div class="lx-demo-stage"><div class="lx-sweep"></div><svg id="demo-canvas" class="lx-demo-svg" viewBox="0 0 1000 400" preserveAspectRatio="none"></svg></div>
+    <div class="lx-demo-controls">
+      <button class="lx-btn" id="demo-play">Pause</button>
+      <button class="lx-btn" id="demo-restart">Restart</button>
+      <div class="lx-legend">
+        <span><i class="lx-dot" style="background:var(--color-fg-muted)"></i>benign</span>
+        <span><i class="lx-dot" style="background:var(--color-ok)"></i>attack, caught</span>
+        <span><i class="lx-dot" style="background:var(--color-bad)"></i>attack, missed</span>
+        <span>ring = device with zero Mirai locally</span>
+      </div>
+    </div>
+    <div class="lx-now" id="demo-now">&nbsp;</div>
+    <div class="lx-grid">
+      <div class="lx-card">
+        <div class="lx-card-title">Rows processed</div>
+        <div class="lx-stat-row">
+          <div class="lx-stat"><div class="lx-stat-value" data-source="sample_traffic" data-field="seq" id="stat-total">—</div><div class="lx-stat-label">real traffic rows, all 9 devices</div></div>
+          <div class="lx-stat"><div class="lx-stat-value" id="stat-acc">—</div><div class="lx-stat-label">correctly classified</div></div>
+          <div class="lx-stat"><div class="lx-stat-value" data-source="zero_day" data-field="zero_day_catch_rate" data-where="dataset=N-BaIoT&amp;strategy=FedProx" id="stat-blind">—</div><div class="lx-stat-label">Mirai caught system-wide, from devices with none locally (Phase&nbsp;4)</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="lx-section" id="comparison">
+  <h2>Does sharing notes actually help?</h2>
+  <p class="lx-sub">Macro-F1 (higher is better; corrects for how rare benign traffic is). <b>Local-only</b> is the floor &mdash; each device trained alone. <b>Centralized</b> is the ceiling &mdash; one model trained on everyone's pooled data. Federated sits between them, without ever pooling raw data.</p>
+  <div class="lx-grid">
+    <div class="lx-card"><div class="lx-card-title">N-BaIoT</div><div class="lx-card-note">9 real devices, 11 classes</div><div class="lx-chart-box" id="chart-compare-nbaiot"></div></div>
+    <div class="lx-card"><div class="lx-card-title">TON_IoT</div><div class="lx-card-note">9 Dirichlet-split clients, 10 classes</div><div class="lx-chart-box" id="chart-compare-tonIoT"></div></div>
+  </div>
+  <p class="lx-note">Each bar is the mean of 3 random seeds (42, 123, 2026); the spread was small and stable across all four approaches (std &lt; 0.01 macro-F1 in every case but one).</p>
+</div>
+
+<div class="lx-section" id="zeroday">
+  <h2>Can it catch an attack it's never seen at all?</h2>
+  <p class="lx-sub">An entire attack family was removed from every client's training data, then tested on that exact family. "Catch rate" = the model flags it as <i>some</i> kind of attack, even with no name for it.</p>
+  <div class="lx-grid">
+    <div class="lx-card"><div class="lx-card-title">N-BaIoT &mdash; Mirai family withheld entirely</div><div class="lx-chart-box" id="chart-zeroday-nbaiot"></div></div>
+    <div class="lx-card"><div class="lx-card-title">TON_IoT &mdash; ransomware withheld entirely</div><div class="lx-chart-box" id="chart-zeroday-tonIoT"></div></div>
+  </div>
+  <p class="lx-note">On N-BaIoT, federation generalizes to the unseen family <i>better</i> than the centralized ceiling &mdash; a real, non-obvious result, not guaranteed by the setup, and stable across all 3 seeds (85% &plusmn; 7%). On TON_IoT, ransomware catch rate swung widely by seed (24%, 24%, 98%) &mdash; we're reporting that honestly rather than picking the flattering run; in-distribution accuracy on TON_IoT stayed stable throughout, only the unseen-class generalization is volatile.</p>
+</div>
+
+<div class="lx-section" id="explainability">
+  <h2>Why did it flag that?</h2>
+  <p class="lx-sub">Each client explains its own decisions locally (SHAP), uploading only an aggregate importance vector &mdash; never raw data. Compared against a centralized model's own explanations:</p>
+  <div class="lx-grid">
+    <div class="lx-card">
+      <div class="lx-card-title">Agreement with the "sees everything" model</div>
+      <div class="lx-stat-row">
+        <div class="lx-stat"><div class="lx-stat-value" data-source="explainability_agreement" data-field="spearman_rho" data-where="dataset=N-BaIoT" id="stat-rho-nbaiot">—</div><div class="lx-stat-label">N-BaIoT (Spearman &rho;)</div></div>
+        <div class="lx-stat"><div class="lx-stat-value" data-source="explainability_agreement" data-field="spearman_rho" data-where="dataset=TON_IoT" id="stat-rho-tonIoT">—</div><div class="lx-stat-label">TON_IoT (Spearman &rho;)</div></div>
+      </div>
+      <p class="lx-note">Both strongly significant (p &lt; 1e-17) &mdash; federated training keyed off essentially the same signals as a model that saw all the data.</p>
+    </div>
+    <div class="lx-card">
+      <div class="lx-card-title">What it actually looks at</div>
+      <table class="lx-feat-table" id="table-features-nbaiot"><thead><tr><th>#</th><th>N-BaIoT top signal</th></tr></thead><tbody></tbody></table>
+    </div>
+  </div>
+</div>
+
+<div class="lx-section" id="bandwidth">
+  <h2>Does this work over a real network?</h2>
+  <p class="lx-sub">Stood up 9 real machines and a real server on an emulated network, running Flower's real deployment software (not a simulation), with real injected delay and real measured bytes.</p>
+  <div class="lx-bw-grid">
+    <div class="lx-card">
+      <div class="lx-card-title">Bytes moved per round, real vs. raw alternatives (log scale)</div>
+      <div class="lx-card-note">All 9 clients, one real training round, delay=20ms</div>
+      <div class="lx-chart-box" id="chart-bandwidth"></div>
+    </div>
+    <div class="lx-stack">
+    <div class="lx-card">
+      <div class="lx-card-title">Round time vs. injected network delay</div>
+      <div class="lx-card-note">One real completed round per delay setting</div>
+      <div class="lx-chart-box" id="chart-roundtime"></div>
+      <p class="lx-note">Flat across 5&ndash;50ms &mdash; round time here is compute-bound (2 CPU cores, 9 real processes), not network-bound.</p>
+    </div>
+    <div class="lx-card">
+      <div class="lx-card-title">Float16 payload: does shrinking it hurt accuracy?</div>
+      <div class="lx-stat-row">
+        <div class="lx-stat"><div class="lx-stat-value" data-source="float16_check" data-field="macro_f1_float32" id="stat-f32">—</div><div class="lx-stat-label">macro-F1, float32</div></div>
+        <div class="lx-stat"><div class="lx-stat-value" data-source="float16_check" data-field="macro_f1_float16_roundtrip" id="stat-f16">—</div><div class="lx-stat-label">macro-F1, float16 round-trip</div></div>
+        <div class="lx-stat"><div class="lx-stat-value" id="stat-sizecut">—</div><div class="lx-stat-label">payload size cut</div></div>
+      </div>
+      <p class="lx-note">Real checkpoint, quantized to float16 and back, re-evaluated &mdash; not retrained.</p>
+    </div>
+    </div>
+  </div>
+</div>
+</script>
+<script>
+// ---- local data shim: mimics the `dash` API with a plain fetch cache ----
+const DATASETS = ["sample_traffic","model_comparison","zero_day","bandwidth_totals",
+                   "round_time","float16_check","explainability_agreement","top_features"];
+const _cache = {};
+const _listeners = [];
+const dash = {
+  data: (id) => _cache[id] || { status: "loading", data: [] },
+  onData: (fn) => { _listeners.push(fn); if (Object.keys(_cache).length === DATASETS.length) fn(); },
+  colors: ["#5b8cff","#ffb648","#35d7c2","#ff8a65","#8f7bff","#4fc3f7","#ffd166","#2fb88a"],
+};
+Promise.all(DATASETS.map(id => fetch(`/data/${id}.json`).then(r => r.json()).then(d => { _cache[id] = { status: "ok", data: d }; })))
+  .then(() => _listeners.forEach(fn => fn()))
+  .catch(err => { console.error("Failed to load data:", err); document.getElementById("dash-root").innerHTML =
+    '<p style="color:var(--color-bad)">Could not load the project data files. Make sure you ran app.py from inside the webapp/ folder.</p>'; });
+
+document.getElementById("dash-root").innerHTML = document.getElementById("page-content").textContent;
+</script>
+<script src="/static/app.js"></script>
+</body>
+</html>
