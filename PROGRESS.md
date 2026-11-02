@@ -236,10 +236,9 @@ results/phase2_summary.csv (flat lower-bound table), results/phase2_local_only.j
 where the project's actual contribution starts: does collaborative training
 close the gap between Phase 2's floor and Phase 1's ceiling?
 
-## Update — 2026-10-20 ~22:55 IST — Alignment check against the team's literature-review deck
+## Update — 2026-10-20 ~22:55 IST — Alignment check against the literature-review deck
 
-User shared FL_EdgeIoT_IDS_LiteratureReview.pptx (11-slide deck, team: Sparsh Y
-Bhagwat, Tanya Singh, Adithya Santosh) and asked whether the build matches it.
+User shared FL_EdgeIoT_IDS_LiteratureReview.pptx (11-slide deck) and asked whether the build matches it.
 Read via markitdown. Verdict: strong alignment on the core thesis, three
 concrete gaps identified and discussed with the user.
 

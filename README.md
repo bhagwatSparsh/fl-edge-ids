@@ -9,7 +9,7 @@ Nine real IoT devices jointly train one shared attack-detector — without ever 
 ![Flower](https://img.shields.io/badge/Flower-Federated%20Learning-1f9e5e)
 ![Status](https://img.shields.io/badge/status-research%20project-orange)
 
-> Computer Networks course project — Sparsh Y Bhagwat, Tanya Singh, Adithya Santosh
+> Computer Networks course project — Sparsh Y Bhagwat
 
 ---
 

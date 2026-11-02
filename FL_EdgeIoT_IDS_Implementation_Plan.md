@@ -1,6 +1,6 @@
 # Implementation Plan — Federated Learning-Based Distributed IDS for Edge-IoT Networks
 
-Team: Sparsh Y Bhagwat · Tanya Singh · Adithya Santosh
+Author: Sparsh Y Bhagwat
 Companion to: *FL Edge-IoT IDS — Stack & Method Review*
 
 **Build principle:** vanilla first, framework second. Each phase produces a result that is checked before the next phase starts. Data and model code are plain PyTorch, with no Flower imports, so the same code runs centralized, local-only, simulated-federated and in Mininet.
@@ -229,5 +229,5 @@ Suggested review mapping: Phases 0–3 for the next review, Phases 4–6 for the
 | FedProx shows no gain over FedAvg | Report it honestly; E5 is where a gain is most likely |
 | SHAP `GradientExplainer` errors on the BiLSTM | Captum Integrated Gradients, same aggregation |
 | Flower API mismatch from online examples | Use only the pinned version's docs; add a CI import check |
-| Mininet unavailable on a team member's OS | Use one shared Ubuntu VM; Mininet is needed only in Phase 6 |
+| Mininet unavailable on the host OS | Use one shared Ubuntu VM; Mininet is needed only in Phase 6 |
 | CNN-BiLSTM no better than MLP | Keep both in the report; argue on robustness and per-class recall, not headline F1 |
